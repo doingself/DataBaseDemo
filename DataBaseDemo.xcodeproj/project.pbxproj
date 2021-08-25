@@ -18,6 +18,7 @@
 		1934EE9926D5E489003C8C0E /* DataBaseDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1934EE9826D5E489003C8C0E /* DataBaseDemoUITests.swift */; };
 		1934EEAA26D5E675003C8C0E /* WCDBSwiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1934EEA926D5E675003C8C0E /* WCDBSwiftManager.swift */; };
 		1934EEAC26D5E9BD003C8C0E /* WCDBSwiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1934EEAB26D5E9BD003C8C0E /* WCDBSwiftModel.swift */; };
+		1934EEAE26D61E0F003C8C0E /* WCDBSwiftManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1934EEAD26D61E0F003C8C0E /* WCDBSwiftManagerTests.swift */; };
 		373262FD9ED6A301F13DC3F5 /* Pods_DataBaseDemo_DataBaseDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5ED0E4E711A1605C58FB85 /* Pods_DataBaseDemo_DataBaseDemoUITests.framework */; };
 		E14BB1278C28BBAC9D664CD9 /* Pods_DataBaseDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE7716D3CFC53ABAB3970EA /* Pods_DataBaseDemoTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		1934EE9A26D5E489003C8C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1934EEA926D5E675003C8C0E /* WCDBSwiftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCDBSwiftManager.swift; sourceTree = "<group>"; };
 		1934EEAB26D5E9BD003C8C0E /* WCDBSwiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCDBSwiftModel.swift; sourceTree = "<group>"; };
+		1934EEAD26D61E0F003C8C0E /* WCDBSwiftManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCDBSwiftManagerTests.swift; sourceTree = "<group>"; };
 		34D78D881A4030F72835DA69 /* Pods-DataBaseDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataBaseDemo.release.xcconfig"; path = "Target Support Files/Pods-DataBaseDemo/Pods-DataBaseDemo.release.xcconfig"; sourceTree = "<group>"; };
 		45375A4C4073655056ADDB8E /* Pods-DataBaseDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataBaseDemoTests.release.xcconfig"; path = "Target Support Files/Pods-DataBaseDemoTests/Pods-DataBaseDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D5ED0E4E711A1605C58FB85 /* Pods_DataBaseDemo_DataBaseDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataBaseDemo_DataBaseDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				1934EE8D26D5E489003C8C0E /* DataBaseDemoTests.swift */,
+				1934EEAD26D61E0F003C8C0E /* WCDBSwiftManagerTests.swift */,
 				1934EE8F26D5E489003C8C0E /* Info.plist */,
 			);
 			path = DataBaseDemoTests;
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1934EE8E26D5E489003C8C0E /* DataBaseDemoTests.swift in Sources */,
+				1934EEAE26D61E0F003C8C0E /* WCDBSwiftManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
