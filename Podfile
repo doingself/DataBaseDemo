@@ -4,7 +4,6 @@
 def commonPods
   # WCDB是腾讯开发的，微信中使用的DB开源框架 https://github.com/Tencent/wcdb
   pod 'WCDB.swift'
-  pod 'SnapKit'
 end
 
 target 'DataBaseDemo' do
