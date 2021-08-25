@@ -16,6 +16,16 @@ class WCDBSwiftManager: NSObject {
     
     private override init() {
         
+        Database.globalTrace { (err: Error) in
+            print("WCDBSwift err: \(err)")
+        }
+        Database.globalTrace { (sql: String) in
+            print("WCDBSwift sql: \(sql)")
+        }
+        Database.globalTrace { tag, dict, num in
+            print("WCDBSwift tag: \(tag ?? -1); num: \(num); dict: \(dict)")
+        }
+        
         // 初始化数据库
         let dataBasePath = NSSearchPathForDirectoriesInDomains(
             FileManager.SearchPathDirectory.documentDirectory,
