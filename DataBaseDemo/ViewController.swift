@@ -29,6 +29,7 @@ class ViewController: UIViewController {
             self.insert()
             self.queryObj()
             self.queryList()
+            self.queryCount()
         }
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
@@ -82,6 +83,16 @@ class ViewController: UIViewController {
         let condition = WCDBSwiftStructModel.Properties.name.like("%haha 2")
         
         WCDBSwiftManager.shared.update(object: structModel2, propertys: propertys, condition: condition)
+    }
+    
+    /// 查 count
+    func queryCount(){
+        // select count(*) from table where id > 1 order by id desc
+        let propertys: [Property] = [WCDBSwiftStructModel.Properties.any.count().as(WCDBSwiftStructModel.Properties.identifier)]
+        let condition = WCDBSwiftStructModel.Properties.identifier > 1
+        
+        let obj: WCDBSwiftStructModel? = WCDBSwiftManager.shared.queryObject(propertys: propertys, condition: condition, orderList: nil, limit: nil, offset: nil)
+        print("obj.id (count) = \(obj?.identifier)")
     }
     
     /// 查
