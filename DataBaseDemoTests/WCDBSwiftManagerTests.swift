@@ -41,11 +41,37 @@ class WCDBSwiftManagerTests: XCTestCase {
             try? WCDBSwiftManager.shared.rollback()
         }
         
-        // 查
-        let propertys: [Property] = WCDBSwiftStructModel.Properties.all
-        let order: OrderBy = WCDBSwiftStructModel.Properties.identifier.asOrder(by: .descending)
-        let list: [WCDBSwiftStructModel]? = WCDBSwiftManager.shared.queryList(propertys: propertys, condition: nil, orderList: [order], limit: nil, offset: nil)
-        XCTAssert(list?.count == 3)
+        
+        let expectation = XCTestExpectation(description: "Some description")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            expectation.fulfill()
+        }
+        
+        let result = XCTWaiter.wait(for: [expectation], timeout: 10)
+        switch(result) {
+        case .completed:
+            //all expectations were fulfilled before timeout!
+            // 查
+            let propertys: [Property] = WCDBSwiftStructModel.Properties.all
+            let order: OrderBy = WCDBSwiftStructModel.Properties.identifier.asOrder(by: .descending)
+            let list: [WCDBSwiftStructModel]? = WCDBSwiftManager.shared.queryList(propertys: propertys, condition: nil, orderList: [order], limit: nil, offset: nil)
+            XCTAssert(list?.count == 3)
+            
+        case .timedOut:
+            //timed out before all of its expectations were fulfilled
+            break
+        case .incorrectOrder:
+            //expectations were not fulfilled in the required order
+            break
+        case .invertedFulfillment:
+            //an inverted expectation was fulfilled
+            break
+        case .interrupted:
+            //waiter was interrupted before completed or timedOut
+            break
+        @unknown default:
+            break
+        }
     }
     
     /// 改
