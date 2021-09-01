@@ -63,15 +63,23 @@ class ViewController: UIViewController {
         
         // 增
         // inser table xx values(..)
-        WCDBSwiftManager.shared.insertTable(objects: [structModel1, structModel2, structModel3])
-        WCDBSwiftManager.shared.insertTable(objects: [classModel])
+        do {
+            try WCDBSwiftManager.shared.begin()
+            
+            try WCDBSwiftManager.shared.insert(objects: [structModel1, structModel2, structModel3])
+            try WCDBSwiftManager.shared.insert(objects: [classModel])
+            
+            try WCDBSwiftManager.shared.commit()
+        } catch {
+            try? WCDBSwiftManager.shared.rollback()
+        }
     }
     
     /// 删
     func delete(){
         // delete table xx where name = 'delete'
         let condition = WCDBSwiftStructModel.Properties.name == "delete"
-        WCDBSwiftManager.shared.delete(table: WCDBSwiftStructModel.self, condition: condition)
+        WCDBSwiftManager.shared.deleteCatch(table: WCDBSwiftStructModel.self, condition: condition)
     }
     
     /// 改
@@ -82,7 +90,7 @@ class ViewController: UIViewController {
         let propertys: [Property] = WCDBSwiftStructModel.Properties.all
         let condition = WCDBSwiftStructModel.Properties.name.like("%haha 2")
         
-        WCDBSwiftManager.shared.update(object: structModel2, propertys: propertys, condition: condition)
+        WCDBSwiftManager.shared.updateCatch(object: structModel2, propertys: propertys, condition: condition)
     }
     
     /// 查 count
@@ -123,9 +131,7 @@ class ViewController: UIViewController {
     }
     
     func drop(){
-        WCDBSwiftManager.shared.closeDataBase {
-            print("drop database")
-        }
+        WCDBSwiftManager.shared.removeDataBase()
     }
 }
 
